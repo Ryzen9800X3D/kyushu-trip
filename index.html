@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027 九州 11 日自駕之旅｜佐賀・熊本・福岡</title>
+<meta name="description" content="2027/2/25–3/7 九州 11 日自駕深度遊：佐賀機場同地取還、全程自駕、每日晴雨雙案。涵蓋阿蘇、熊本城、糸島牡蠣、太宰府、武雄溫泉、有田陶瓷、唐津、嬉野。">
+<style>
+:root{
+ --ink:#1c2321; --paper:#faf7f0; --card:#ffffff; --line:#e8e1d4;
+ --red:#b23a2e; --red2:#8f2d23; --gold:#c8963e; --teal:#2e6e62;
+ --sunny:#d98324; --rain:#3d6b8f; --mut:#7c766a;
+ --shadow:0 2px 14px rgba(40,35,25,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",-apple-system,Segoe UI,Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75}
+a{color:var(--red)}
+h1,h2,h3{line-height:1.3}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.hero{position:relative;color:#fff;background:linear-gradient(135deg,#22303a 0%,#2e4a52 45%,#3d6e64 100%);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(1200px 400px at 80% -10%,rgba(200,150,62,.25),transparent 60%)}
+.hero .container{position:relative;z-index:2;padding:64px 20px 56px}
+.hero .jp{font-size:14px;letter-spacing:.5em;color:#e8d9b8;margin-bottom:10px}
+.hero h1{font-size:clamp(30px,5.4vw,52px);margin:0 0 14px;font-weight:800}
+.hero p.sub{font-size:16.5px;max-width:640px;color:#eef2f1;margin:0 0 28px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px);border-radius:999px;padding:7px 16px;font-size:13.5px}
+.chip b{color:#ffe9c4}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,247,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .container{display:flex;gap:4px;overflow-x:auto;padding:10px 20px}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:14px;padding:7px 13px;border-radius:999px}
+.nav a:hover{background:#efe8da}
+
+/* section */
+section{padding:52px 0}
+.sec-title{display:flex;align-items:baseline;gap:12px;margin:0 0 6px}
+.sec-title .no{font-size:13px;color:var(--gold);letter-spacing:.2em;font-weight:700}
+.sec-title h2{font-size:26px;margin:0;font-weight:800}
+.sec-sub{color:var(--mut);font-size:14.5px;margin:0 0 28px}
+
+/* route */
+.route{display:flex;flex-wrap:wrap;gap:0;align-items:stretch}
+.route .node{flex:1 1 160px;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 14px;box-shadow:var(--shadow);position:relative}
+.route .node .city{font-weight:800;font-size:17px;color:var(--red2)}
+.route .node .meta{font-size:12.5px;color:var(--mut);margin-top:4px}
+.route .node .n{position:absolute;top:10px;right:12px;font-size:11px;color:var(--gold);font-weight:700}
+.route .node.base{border:2px solid var(--gold)}
+
+/* day cards */
+.day{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);margin-bottom:26px;overflow:hidden}
+.day-head{display:grid;grid-template-columns:340px 1fr;gap:0}
+.day-head .cover{position:relative;min-height:210px;background:#dfe8e6}
+.day-head .cover img{width:100%;height:100%;object-fit:cover;display:block}
+.day-head .cover .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:44px;background:linear-gradient(135deg,#3d6e64,#22303a);color:#fff}
+.day-head .info{padding:20px 24px}
+.day-head .date{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.08em}
+.day-head h3{margin:4px 0 6px;font-size:21px}
+.day-head .place{font-size:13.5px;color:var(--mut)}
+.day-head .place b{color:var(--ink)}
+.day-body{padding:0 24px 22px}
+.weather-tabs{display:flex;gap:8px;margin:14px 0 12px}
+.wtab{flex:1;border-radius:12px;padding:10px 14px;font-size:13.5px;cursor:default;border:1px solid var(--line)}
+.wtab.sun{background:#fdf3e3;border-color:#f0d9b4}
+.wtab.sun .t{font-weight:800;color:#a3610f}
+.wtab.rain{background:#eaf1f6;border-color:#c9dbe7}
+.wtab.rain .t{font-weight:800;color:var(--rain)}
+.wtab p{margin:2px 0 0;font-size:13px;color:#555}
+.timeline{list-style:none;margin:14px 0 0;padding:0}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:9px 0;border-top:1px dashed var(--line)}
+.timeline li:first-child{border-top:0}
+.timeline .tm{font-size:12.5px;font-weight:700;color:var(--teal);white-space:nowrap}
+.timeline .what{font-size:14.5px}
+.timeline .tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;margin-left:8px;vertical-align:1px}
+.tag.traffic{background:#eef2f6;color:#4a5b6b}
+.tag.food{background:#fdeeea;color:#a34a2e}
+.tag.spot{background:#e9f4ef;color:#2e6e62}
+.tag.hotel{background:#f3ecf7;color:#5b4a8f}
+.tip{margin-top:14px;background:#faf4e6;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:10px 14px;font-size:13.5px;color:#6b5b33}
+.tip b{color:#8a6a1f}
+
+/* info cards */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.card h4{margin:0 0 10px;font-size:16px;color:var(--red2)}
+.card table{width:100%;border-collapse:collapse;font-size:13.5px}
+.card td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+.card td:first-child{color:var(--mut);white-space:nowrap;width:70px}
+.card ul{margin:0;padding-left:18px;font-size:13.5px}
+.card li{margin:6px 0}
+.card .note{font-size:13px;color:var(--mut);margin-top:8px}
+
+/* food strip */
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.food{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.food .nm{font-weight:800;font-size:15px}
+.food .ds{font-size:12.5px;color:var(--mut);margin-top:3px}
+.food .loc{font-size:11.5px;color:var(--gold);margin-top:6px;font-weight:700}
+
+footer{background:#22303a;color:#cfd8d4;padding:28px 0;font-size:13px}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:#e8d9b8}
+.src{font-size:12px;color:var(--mut);margin-top:20px;line-height:1.9}
+.src li{margin:2px 0}
+@media(max-width:760px){
+ .day-head{grid-template-columns:1fr}
+ .day-head .cover{min-height:180px}
+ .grid2{grid-template-columns:1fr}
+ .timeline li{grid-template-columns:92px 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="container">
+<div class="jp">九州 · 自駕 · 晴雨整合</div>
+<h1>2027 九州 11 日自駕之旅</h1>
+<p class="sub">2027/2/25（四）– 3/7（日）｜佐賀機場同地取還車・全程自駕・10 人團體・每日至多 2–3 個景點的寬鬆節奏。
+前期佐賀入境 ➔ 熊本 ➔ 福岡，中期福岡自駕（糸島海岸 &amp; 太宰府九博），後期佐賀深度巡禮（武雄・唐津・嬉野 ➔ 佐賀機場還車返台）。</p>
+<div class="chips">
+<span class="chip">📅 <b>11 天 10 夜</b></span>
+<span class="chip">🚗 <b>2 台自駕・佐賀機場同地取還</b></span>
+<span class="chip">🏨 熊本 Airbnb 3 晚</span>
+<span class="chip">🏨 中洲川端 3 晚</span>
+<span class="chip">🏨 ond hotel 武雄 3 晚</span>
+<span class="chip">🏨 佐賀城飯店 1 晚</span>
+<span class="chip">✈️ IT246 去程 / IT247 回程</span>
+</div>
+</div>
+</header>
+
+<nav class="nav"><div class="container">
+<a href="#route">路線總覽</a>
+<a href="#d1">D1 入境</a><a href="#d2">D2 阿蘇</a><a href="#d3">D3 熊本城</a><a href="#d4">D4 LaLaport</a>
+<a href="#d5">D5 糸島</a><a href="#d6">D6 太宰府</a><a href="#d7">D7 武雄</a><a href="#d8">D8 有田</a>
+<a href="#d9">D9 唐津</a><a href="#d10">D10 嬉野</a><a href="#d11">D11 返台</a>
+<a href="#food">美食清單</a><a href="#todo">行前待辦</a><a href="#note">注意事項</a>
+</div></nav>
+
+<section id="route"><div class="container">
+<div class="sec-title"><span class="no">01</span><h2>路線總覽</h2></div>
+<p class="sec-sub">佐賀機場入境取車後直奔熊本與阿蘇山區，中途以福岡中洲川端為基地放射狀遊覽，最後深入佐賀溫泉與動漫聖地，佐賀機場同地還車。</p>
+<div class="route">
+<div class="node"><span class="n">D1</span><div class="city">佐賀機場</div><div class="meta">入境・取車 2 台</div></div>
+<div class="node base"><span class="n">D1–D3</span><div class="city">熊本</div><div class="meta">Airbnb 3 晚｜阿蘇・熊本城・宇土半島</div></div>
+<div class="node base"><span class="n">D4–D6</span><div class="city">福岡</div><div class="meta">中洲川端 3 晚｜糸島・太宰府・九博</div></div>
+<div class="node base"><span class="n">D7–D9</span><div class="city">武雄</div><div class="meta">ond hotel 3 晚｜宇宙科學館・有田・唐津</div></div>
+<div class="node"><span class="n">D10</span><div class="city">佐賀市</div><div class="meta">佐賀城飯店 1 晚｜嬉野溫泉</div></div>
+<div class="node"><span class="n">D11</span><div class="city">佐賀機場</div><div class="meta">還車・IT247 返台</div></div>
+</div>
+</div></section>
+
+<section id="days"><div class="container">
+<div class="sec-title"><span class="no">02</span><h2>11 日詳細行程</h2></div>
+<p class="sec-sub">每日含【晴天】與【雨天備案】雙方案；下方時間表為晴天主線。圖片來源 Wikimedia Commons（部分為示意圖）。</p>
+<div id="daylist"></div>
+</div></section>
+
+<section id="food" style="background:#f4efe4"><div class="container">
+<div class="sec-title"><span class="no">03</span><h2>美食清單</h2></div>
+<p class="sec-sub">依行程排序的必吃清單，10 人團體建議分組分流或提前訂位。</p>
+<div class="food-grid">
+<div class="food"><div class="nm">柳川鰻魚飯</div><div class="ds">D1 午餐・佐賀柳川名物</div><div class="loc">D1・柳川</div></div>
+<div class="food"><div class="nm">烤牡蠣小屋</div><div class="ds">炭烤活牡蠣海鮮大餐・全室內炭烤不受天氣影響</div><div class="loc">D5・糸島 船越/岐志漁港</div></div>
+<div class="food"><div class="nm">手工花鹽焦糖布丁</div><div class="ds">工房とったん 必吃甜點</div><div class="loc">D5・糸島志摩</div></div>
+<div class="food"><div class="nm">博多牛腸鍋（もつ鍋）</div><div class="ds">一藤 / 前田屋；牛腸鍋宗家 赤門屋（一月底提醒訂位）</div><div class="loc">D5・中洲</div></div>
+<div class="food"><div class="nm">博多水瀧鍋</div><div class="ds">華味鳥・博多特色鍋物</div><div class="loc">D5・中洲</div></div>
+<div class="food"><div class="nm">博多拉麵</div><div class="ds">Shin-Shin、博多一雙排隊人多 → JR 博多城 2F 博多拉麵街道分組分流</div><div class="loc">D5–D6・博多</div></div>
+<div class="food"><div class="nm">中洲屋台</div><div class="ds">博多路邊攤文化・攤位 8–10 席、分組入座</div><div class="loc">D5–D6・中洲</div></div>
+<div class="food"><div class="nm">現烤梅枝餅</div><div class="ds">太宰府天滿宮參道</div><div class="loc">D6・太宰府</div></div>
+<div class="food"><div class="nm">佐賀牛便當 / 餃子</div><div class="ds">武雄溫泉站カイロ堂佐賀牛便當 或 餃子會館</div><div class="loc">D7・武雄</div></div>
+<div class="food"><div class="nm">呼子活烏賊刺身</div><div class="ds">河太郎 或 海中餐廳萬坊（生食+現烤天婦羅兩吃）</div><div class="loc">D9・呼子</div></div>
+<div class="food"><div class="nm">海中餐廳萬坊</div><div class="ds">日本首創水下餐廳・觀景窗賞魚群用餐・雨天首選</div><div class="loc">D9・呼子</div></div>
+<div class="food"><div class="nm">嬉野溫泉湯豆腐</div><div class="ds">豆腐在溫泉水中煮融成香濃白湯・宗庵よこ長 或 平川屋</div><div class="loc">D10・嬉野</div></div>
+<div class="food"><div class="nm">佐賀牛鐵板燒</div><div class="ds">佐賀牛 季樂本店・頂級佐賀和牛・步行約 800 公尺</div><div class="loc">D10・佐賀市</div></div>
+<div class="food"><div class="nm">蛋奶素土產</div><div class="ds">帶回台灣的伴手禮（注意蛋奶素）</div><div class="loc">全程</div></div>
+</div>
+</div></section>
+
+<section id="todo"><div class="container">
+<div class="sec-title"><span class="no">04</span><h2>行前待辦 &amp; 注意事項</h2></div>
+<p class="sec-sub">來源：《九州行重點提醒紀錄表單.xlsx》。</p>
+<div class="grid2">
+<div class="card"><h4>✈️ 機票資訊</h4>
+<table><tr><td>去程</td><td>2/25（四）IT246・台灣時間 8:10 起飛 → 日本時間 11:15 抵達</td></tr>
+<tr><td>回程</td><td>3/7（日）IT247・日本時間 11:25 起飛 → 台灣時間 13:05 抵達</td></tr></table></div>
+<div class="card"><h4>📋 待辦事項</h4>
+<ul>
+<li>韋廷：駕照日文譯本申請</li>
+<li>瀚凱：駕照日文譯本申請 / 11 天份慢性病藥物</li>
+<li>健廷：駕照日文譯本申請 / 緊急痛風藥物</li>
+<li>小夜：護照更新</li>
+<li>百：護照更新 / 全部人的旅遊保險 / 全部人的 eSIM（Joe &amp; 尖自行處理，買 eSIM 前跟健廷確認）</li>
+<li>妍：詢問租車 → 已預約，預約號 <b>00010892217 &amp; 00010892227</b></li>
+</ul></div>
+<div class="card"><h4>🧳 行李箱（4 小 7 大）</h4>
+<ul>
+<li>每車抓 3 小 4 大，留空間給包包</li>
+<li>虎航手提新規定：54×38×23cm、兩件合計 ≤10kg；2026/5/28 起全線改<b>紙板測量箱投影法</b>（桃園/台中/高雄/日本機場通用）</li>
+<li>機場櫃檯臨時加託運費 1,600 元</li>
+</ul></div>
+<div class="card"><h4>📌 注意事項</h4>
+<ul>
+<li>出發前確認「阿蘇火山防災連絡協議會」官網火口管制級別及阿蘇、杵島岳聯外道路</li>
+<li>全程租車佐賀機場同地取還，免跨縣還車手續費</li>
+<li>2/27 事先確認熊本城天守閣與特別見學通路開放公告（決定 A/B 方案）</li>
+<li>熊本 Airbnb：熊本市東區若葉 2-9-10 201/202 室（自駕先查周邊停車場）</li>
+<li>太宰府導航至九州國立博物館立體停車場（約 500 日圓/次），免表參道窄巷找車位</li>
+<li>3/6 佐賀城飯店：16:30 先到、停西側 40 格免費平面車位；晚餐佐賀牛 季樂本店僅 800 公尺</li>
+<li>3/7 08:00 出發 → 佐賀機場 13.5 公里/20 分鐘，08:40 還車、加滿油保留收據</li>
+<li>牛もつ鍋 宗家 赤門屋：一月底提醒訂位</li>
+</ul></div>
+</div>
+</div></section>
+
+<footer><div class="container">
+<div>2027 九州 11 日自駕之旅｜V4 晴雨整合版｜健廷 製</div>
+<div>圖片：Wikimedia Commons（CC 授權，部分為示意）</div>
+</div></footer>
+<div class="src container">
+<b>資料來源</b>
+<ul style="margin:0;padding-left:18px">
+<li>《2027年九州11日行程表.docx》（V4 晴雨整合版）</li>
+<li>《2027九州11日自駕行程表.xlsx》（每日時間表）</li>
+<li>《九州行重點提醒紀錄表單.xlsx》（待辦/機票/行李箱/注意事項）</li>
+<li>參考心得：櫻井二見浦攻略（2p4c / dongwa）、teamLab Forest 福岡（bring-you / bunnyann）、方格子福岡神社巡禮</li>
+</ul>
+</div>
+
+<script>
+const IMG={"aso_nakadake": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Crater_of_Mount_Nakadake_from_Saigandenji.JPG/960px-Crater_of_Mount_Nakadake_from_Saigandenji.JPG", "kusasenri": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Kusasenri_2011-10_01.jpg/960px-Kusasenri_2011-10_01.jpg", "daikanbo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Daikanbo_Station_01.JPG/960px-Daikanbo_Station_01.JPG", "kumamoto_castle": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Kumamoto_Castle_02n3200.jpg/960px-Kumamoto_Castle_02n3200.jpg", "kamichou": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/090502_Kago-machi_street_Kumamoto_Japan01s3.jpg/960px-090502_Kago-machi_street_Kumamoto_Japan01s3.jpg", "kikuchi_gorge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Kikuchi_Gorge_Hirogawara_20240518.jpg/960px-Kikuchi_Gorge_Hirogawara_20240518.jpg", "lalaport_gundam": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/RX-78-2_GUNDAM_%289350224325%29.jpg/960px-RX-78-2_GUNDAM_%289350224325%29.jpg", "nakasu": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Fukuhaku_Deai_Bridge_Nakasu_Hakata-ku_Nishi-nakasu_Hakata-ku_Fukuoka_City_20221129.jpg/960px-Fukuhaku_Deai_Bridge_Nakasu_Hakata-ku_Nishi-nakasu_Hakata-ku_Fukuoka_City_20221129.jpg", "saga_pref": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Entrance_of_Saga_Prefectural_Government_Office_with_nameplate.jpg/960px-Entrance_of_Saga_Prefectural_Government_Office_with_nameplate.jpg", "yanagawa": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Fukuoka_20170728121404_%2838843392254%29.jpg/960px-Fukuoka_20170728121404_%2838843392254%29.jpg", "itoshima": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Itoshima_Peninsula_and_Genkaijima_Island_from_Obaru_Beach_1.jpg/960px-Itoshima_Peninsula_and_Genkaijima_Island_from_Obaru_Beach_1.jpg", "dazaifu": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/960px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg", "kyushu_museum": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Southern_face_of_the_Kyushu_National_Museum_in_January_2019.jpg/960px-Southern_face_of_the_Kyushu_National_Museum_in_January_2019.jpg", "kushida": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Kushida_Shrine_Kair%C5%8D_1-41_Kami-kawabatamachi_Hakata-ku_Fukuoka_20231128.jpg/960px-Kushida_Shrine_Kair%C5%8D_1-41_Kami-kawabatamachi_Hakata-ku_Fukuoka_20231128.jpg", "yatai": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Fukuoka_Hakata_Yatai_the_parking_lot_Reisenmachi_Hakata-ku_Fukuoka_20240122.jpg/960px-Fukuoka_Hakata_Yatai_the_parking_lot_Reisenmachi_Hakata-ku_Fukuoka_20240122.jpg", "takeo_library": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Takeo_City_Library_exterior_ac_%281%29.jpg/960px-Takeo_City_Library_exterior_ac_%281%29.jpg", "takeo_shrine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/1st_Torii_of_Takeo_Shrine.jpg/960px-1st_Torii_of_Takeo_Shrine.jpg", "takeo_onsen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/New_hall_of_Takeo_Onsen_20221021.jpg/960px-New_hall_of_Takeo_Onsen_20221021.jpg", "musuginga": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Coal_from_Nishiki_coal_mine_Saga_1972.jpg/960px-Coal_from_Nishiki_coal_mine_Saga_1972.jpg", "arita": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Arita_Pottery_Market_20170429-10.jpg/960px-Arita_Pottery_Market_20170429-10.jpg", "karatsu_castle": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Karatsu_Castle.jpg/960px-Karatsu_Castle.jpg", "nijinomatsubara": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Nijinomatsubara.jpg/960px-Nijinomatsubara.jpg", "kino_onsen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Ureshino_Onsen_Hondori_20230610_01.jpg/960px-Ureshino_Onsen_Hondori_20230610_01.jpg", "yutoku_inari": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Myobu_Shrine_in_Yutoku_Inari_Shrine.jpg/960px-Myobu_Shrine_in_Yutoku_Inari_Shrine.jpg", "futamizaki": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Futamigaura_in_Itoshima%2C_Fukuoka.jpg/960px-Futamigaura_in_Itoshima%2C_Fukuoka.jpg", "futsu_squid": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Ika_sashimi.JPG/960px-Ika_sashimi.JPG", "kyushu_museum_b": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Odontochilus_nakaianus_%28F.Maek.%29_T.Yukawa%2C_Bull._Natl._Mus._Nat._Sci.%2C_Tokyo%2C_B._42_108_%282016%29_%2850123654488%29.jpg/960px-Odontochilus_nakaianus_%28F.Maek.%29_T.Yukawa%2C_Bull._Natl._Mus._Nat._Sci.%2C_Tokyo%2C_B._42_108_%282016%29_%2850123654488%29.jpg", "lalaport": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/LaLaport_BBCC_%28230705-1528%29.jpg/960px-LaLaport_BBCC_%28230705-1528%29.jpg"};
+const DAYS=[["1", "2/25", "四", "熊本", "熊本 Airbnb（熊本市東區若葉 2-9-10 201/202 室）", "kumamoto_castle", "🌞 晴/陰（乾潮）", "佐賀機場入境取車 → 柳川午餐 → 長部田海床路 → 熊本 Airbnb Check-in → 下通/上通拱廊街", "☔ 雨天備案", "直達熊本市區 Check-in → 下通/上通拱廊街（室內無雨逛街與晚餐）", [["11:15", "IT246 降落佐賀機場（日本時間）", "traffic"], ["11:00-12:00", "佐賀機場入境與取車（2 台車）", "traffic"], ["12:30-14:00", "柳川午餐・推薦柳川鰻魚飯", "food"], ["15:00-16:30", "長部田海床路（雨天取消，提早進熊本市區）", "spot"], ["17:30", "熊本市區 Check-in", "hotel"], ["18:00-20:00", "下通/上通拱廊街・室內逛街與晚餐", "spot"]], "入境日節奏從容，行李直接上車，免除 11 人搬運與轉乘。"], ["2", "2/26", "五", "熊本・阿蘇", "熊本 Airbnb", "aso_nakadake", "🌞 晴天", "阿蘇火山中岳火口 → 草千里之濱 & 杵島岳 → 大觀峰", "☔ 雨天備案", "阿蘇火山博物館 → 高森湧水隧道公園 → 道之驛阿蘇", [["09:00-10:00", "熊本市區出發（車程約 1 小時）", "traffic"], ["10:00-11:30", "阿蘇火山中岳火口（雨天：阿蘇火山博物館）", "spot"], ["11:45-14:15", "草千里之濱 & 杵島岳・含午餐（雨天：高森湧水隧道公園）", "spot"], ["15:00-16:00", "大觀峰（雨天：道之驛阿蘇）", "spot"], ["17:30", "熊本 Airbnb・第二晚", "hotel"]], "出發前務必查「阿蘇火山防災連絡協議會」官網火口管制級別與聯外道路。"], ["3", "2/27", "六", "熊本", "熊本 Airbnb", "kumamoto_castle", "🌞 晴天（方案 A 熊本城開放）", "熊本城 → 櫻之馬場 城彩苑 → 宇土半島（海之金字塔、三角西港）", "☔ 雨天備案", "熊本城天守閣內部 → 城彩苑「湧湧座」 → 熊本市現代美術館/鶴屋百貨", [["09:00-09:30", "前往熊本城", "traffic"], ["09:30-12:30", "熊本城 & 櫻之馬場 城彩苑・含午餐（雨天：天守閣內部與湧湧座）", "spot"], ["13:30-14:30", "宇土半島：三角西港散步（雨天：熊本市現代美術館或鶴屋百貨）", "spot"], ["14:45-15:30", "宇土半島：海之金字塔登頂", "spot"], ["16:30", "熊本 Airbnb・第三晚", "hotel"]], "◆ 若熊本城封閉 → 全日改山都町路線：通潤橋 → 五老瀑布 → 小笹圓形分水 → 八角隧道與二俣橋。行前確認天守閣與特別見學通路開放公告。"], ["4", "2/28", "日", "福岡", "中洲川端東方快捷酒店", "kikuchi_gorge", "🌞 晴天", "熊本退房 → 菊池溪谷 → LaLaport 福岡 → 中洲川端酒店 Check-in", "☔ 雨天備案", "高速直達 LaLaport 福岡 → 中洲川端酒店 Check-in", [["09:00-12:00", "熊本退房 & 菊池溪谷（雨天：取消溪谷直接上高速公路）", "spot"], ["12:00-13:00", "午餐・菊池市區或高速公路休息站", "food"], ["14:30-17:30", "LaLaport 福岡・實體鋼彈朝聖與購物", "spot"], ["18:00", "中洲川端東方快捷酒店 Check-in 與停車", "hotel"]], "福岡連住 3 晚基地，車輛停放飯店或周邊特約停車場。鋼彈 statue 請先確認 LaLaport 公开展出狀態。"], ["5", "3/1", "一", "福岡・糸島", "中洲川端東方快捷酒店", "futamizaki", "☀️ 晴天", "櫻井二見之浦夫婦岩 → 船越/岐志漁港烤牡蠣小屋 → 志摩日落大道＆工房とったん → 櫻井神社 → 中洲屋台", "☔ 雨天備案", "糸島牡蠣小屋（全室內炭烤）＋伊都菜彩；或福岡市區：博多拉麵街 → 天神地下街/博多運河城 → teamLab Forest → 博多鍋物", [["10:00-10:45", "自駕前往糸島（約 35 分鐘）", "traffic"], ["10:45-11:30", "櫻井二見之浦夫婦岩・純白水中鳥居合照", "spot"], ["11:45-13:30", "船越漁港或岐志漁港烤牡蠣小屋・炭烤活牡蠣海鮮大餐", "food"], ["13:45-15:30", "志摩日落大道＆工房とったん・必吃手工花鹽焦糖布丁", "spot"], ["15:30-16:30", "櫻井神社", "spot"], ["17:15", "返回中洲川端", "traffic"], ["18:30-20:30", "晚餐：博多水瀧鍋（華味鳥）或牛腸鍋（一藤/前田屋）→ 中洲屋台", "food"]], "水中鳥居拍照看潮汐，純白鳥居下午光線最佳。牡蠣小屋雨天照常營業。"], ["6", "3/2", "二", "福岡・太宰府", "中洲川端東方快捷酒店", "dazaifu", "☀️ 晴天", "太宰府天滿宮 & 天開稻荷 → 九州國立博物館 → 櫛田神社 & 川端通 → 中洲屋台", "☔ 雨天備案", "太宰府（室內彩虹步道不受影響）→ 博多運河城/天神地下街 → 中洲屋台或室內拉麵街", [["09:15-10:00", "自駕前往太宰府・停放九州國立博物館停車場（約 500 日圓/次，車位多）", "traffic"], ["09:45-11:45", "太宰府天滿宮 & 天開稻荷神社・全室內彩虹電動步道直達、參道現烤梅枝餅", "spot"], ["12:00-15:00", "九州國立博物館・展覽參觀與館內午餐", "spot"], ["15:15-17:30", "自駕返回中洲川端・徒步參拜櫛田神社（看巨型山笠）& 川端通商店街", "spot"], ["18:00-20:00", "中洲屋台・博多路邊攤文化（10 人分組分流）", "food"]], "直接導航九州國立博物館停車場，免太宰府表參道窄巷找車位；室内彩虹手扶梯+電動步道輕鬆往返天滿宮。"], ["7", "3/3", "三", "福岡→佐賀・武雄", "ond hotel（武雄市）", "takeo_library", "🌞 晴天", "武雄市區午餐 → 武雄市圖書館 → 武雄神社（3000 年武雄大楠）→ 武雄溫泉樓門巡禮", "☔ 雨天備案", "直達武雄市圖書館（全室內蔦屋風格）→ 佐賀牛料理 → 武雄溫泉樓門古湯泡湯", [["09:30-11:00", "中洲川端退房出發直奔武雄（約 1.5 小時）", "traffic"], ["11:30-13:00", "武雄市區午餐・武雄溫泉站カイロ堂佐賀牛便當 或 餃子會館", "food"], ["13:30-15:30", "武雄市圖書館 & 武雄神社・參拜 3000 年神木武雄大楠", "spot"], ["16:00-17:30", "武雄溫泉樓門巡禮・辰野金吾代表作、元湯大眾池體驗", "spot"], ["17:30", "ond hotel 入住・約 70 格免費停車場、SUMI/MAKI+BONA 桑拿、美人湯大浴場", "hotel"]], "ond hotel 連住 3 晚：Slumberland 床墊、全九州頂級特色桑拿、深水冷水池。2 台車直接停飯店免費停車場。"], ["8", "3/4", "四", "佐賀・有田", "ond hotel", "musuginga", "🌞 晴天", "佐賀縣立宇宙科學館《夢銀河》→ 有田陶瓷小鎮：陶山神社（全日本唯一陶瓷鳥居）& 陶瓷街散策", "☔ 雨天備案", "宇宙科學館（全室內）→ 佐賀縣立九州陶瓷文化館（全室內免費，國寶級有田燒收藏）", [["09:30-10:00", "前往宇宙科學館", "traffic"], ["10:00-13:30", "佐賀縣立宇宙科學館《夢銀河》・互動科學展與天象館・含午餐", "spot"], ["13:30-14:00", "前往有田（車程約 20 分鐘）", "traffic"], ["14:00-16:30", "有田陶瓷小鎮：陶山神社 & 陶瓷街散策", "spot"], ["17:00", "ond hotel・第八晚・回飯店泡湯", "hotel"]], "宇宙科學館《夢銀河》是佐賀必訪，天象館場次建議早場。"], ["9", "3/5", "五", "佐賀・唐津", "ond hotel", "karatsu_castle", "🌞 晴天", "唐津城天守閣 → 呼子活烏賊料理 或 唐津漢堡 → 鏡山展望台 & 虹之松原", "☔ 雨天備案", "唐津城天守閣內部展示 → 海中餐廳萬坊（日本首創水下餐廳）→ 舊唐津銀行（辰野式紅磚洋館）或曳山展示場", [["09:00-10:00", "前往唐津", "traffic"], ["10:00-11:45", "唐津城・天守閣登頂", "spot"], ["12:00-13:30", "呼子活烏賊料理（河太郎或海中餐廳萬坊，生食+現烤天婦羅兩吃）或 唐津漢堡本店", "food"], ["14:00-16:00", "鏡山展望台・俯瞰虹之松原與唐津灣弧形海岸線絕景 & 虹之松原", "spot"], ["17:00", "ond hotel・第九晚", "hotel"]], "海中餐廳萬坊透過觀景窗看魚群用餐，雨天首選。"], ["10", "3/6", "六", "佐賀・嬉野→佐賀市", "佐賀城飯店（Saga City Hotel）", "yutoku_inari", "🌞 晴天", "嬉野溫泉街（嬉野茶・足湯）→ 嬉野溫泉湯豆腐 → 祐德稻荷神社 → 佐賀城飯店 Check-in → 佐賀牛 季樂本店 → 佐賀縣廳夜景", "☔ 雨天備案", "嬉野茶交流館 Chaoshiru（室內泡茶體驗）→ 湯豆腐名店 → 祐德稻荷本殿（有遮雨迴廊）→ 飯店 → 佐賀牛 → 縣廳夜景", [["09:30-10:00", "ond hotel 退房前往嬉野", "traffic"], ["10:00-13:00", "嬉野溫泉街・嬉野茶品嚐、足湯・午餐宗庵よこ長或平川屋湯豆腐（豆腐在溫泉水中煮融成香濃白湯）", "spot"], ["13:30-15:30", "祐德稻荷神社・日本三大稻荷之一、宏偉樓閣與千本鳥居", "spot"], ["16:30", "佐賀城飯店 Check-in・停妥 2 台車（西側 40 格免費平面車位）卸行李", "hotel"], ["17:30-20:30", "佐賀牛 季樂本店（步行約 800 公尺）鐵板燒 + 佐賀縣廳頂樓免費投影光雕夜景", "food"]], "16:30 先入住房車，司機可放鬆小酌免深夜找車位。"], ["11", "3/7", "日", "佐賀→返台", "—", "nakasu", "🌅 返台日", "佐賀城飯店退房 → 佐賀機場還車 → Check-in → IT247 返台", "—", "動線固定，無備案", [["08:00-08:40", "佐賀城飯店出發・縣道 49 號至佐賀機場（13.5 公里/20 分鐘）・加油站加滿油保留收據", "traffic"], ["08:40-09:10", "佐賀機場還車・2 台車驗車點交", "traffic"], ["09:10-11:00", "國際線 Check-in、行李託運與出境安檢", "traffic"], ["11:25", "IT247 起飛・13:05（台灣時間）抵達", "traffic"]], "提前 2 小時到機場（10 人團體 + 2 台車點交），11 日旅程畫下句點。"]];
+const TAGNAME={traffic:'交通',food:'覓食',spot:'景點',hotel:'住宿'};
+const EMOJI={traffic:'🚗',food:'🍜',spot:'📸',hotel:'🏨'};
+function dayCard(d){
+ const [no,date,wd,city,hotel,imgKey,sunnyT,sunnyDesc,rainT,rainDesc,items,tip]=d;
+ const img=IMG[imgKey];
+ let cover = img
+  ? `<div class="cover"><img src="${img}" alt="${city}" loading="lazy"></div>`
+  : `<div class="cover"><div class="ph">🗾</div></div>`;
+ const rows=items.map(it=>{
+  const [tm,what,tag]=it;
+  return `<li><span class="tm">${tm}</span><span class="what">${EMOJI[tag]||'•'} ${what}<span class="tag ${tag}">${TAGNAME[tag]||tag}</span></span></li>`;
+ }).join('');
+ return `<div class="day" id="d${no}">
+ <div class="day-head">${cover}
+ <div class="info">
+  <div class="date">DAY ${no}｜${date}（${wd}）</div>
+  <h3>${city}</h3>
+  <div class="place">住宿：<b>${hotel}</b></div>
+ </div></div>
+ <div class="day-body">
+  <div class="weather-tabs">
+   <div class="wtab sun"><div class="t">${sunnyT}</div><p>${sunnyDesc}</p></div>
+   <div class="wtab rain"><div class="t">${rainT}</div><p>${rainDesc}</p></div>
+  </div>
+  <ul class="timeline">${rows}</ul>
+  <div class="tip">💡 <b>提醒</b>：${tip}</div>
+ </div></div>`;
+}
+document.getElementById('daylist').innerHTML=DAYS.map(dayCard).join('');
+</script>
+</body>
+</html>
