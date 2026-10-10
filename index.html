@@ -35,6 +35,17 @@ h1,h2,h3{line-height:1.3}
 .nav .container{display:flex;align-items:center;gap:4px;overflow-x:auto;padding:8px 16px}
 .nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:13px;padding:6px 11px;border-radius:999px}
 .nav a:hover{background:#efe8da}
+/* hamburger */
+.hamburger{display:none;position:fixed;top:58px;right:16px;z-index:60;width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s ease}
+/* side drawer */
+.drawer-overlay{display:none;position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.4);opacity:0;transition:opacity .3s ease}
+.drawer-overlay.open{display:block;opacity:1}
+.drawer{position:fixed;top:0;right:-280px;width:280px;height:100%;background:var(--card);z-index:100;box-shadow:-4px 0 20px rgba(0,0,0,.15);transition:right .3s ease;padding:80px 20px 20px;overflow-y:auto}
+.drawer.open{right:0}
+.drawer a{display:block;padding:14px 16px;color:var(--ink);text-decoration:none;font-size:15px;border-radius:10px;margin-bottom:4px}
+.drawer a:hover{background:#efe8da}
+.drawer .close-btn{position:absolute;top:16px;right:16px;width:36px;height:36px;border:none;background:none;font-size:24px;cursor:pointer;color:var(--ink)}
 
 /* section */
 section{padding:52px 0}
@@ -111,6 +122,10 @@ footer a{color:#e8d9b8}
  .day-head .cover{min-height:180px}
  .grid2{grid-template-columns:1fr}
  .timeline li{grid-template-columns:92px 1fr}
+ /* Mobile nav */
+ .nav .container{justify-content:space-between;padding:8px 12px}
+ .nav a{display:none}
+ .hamburger{display:flex}
 }
 </style>
 </head>
@@ -142,6 +157,29 @@ footer a{color:#e8d9b8}
 <a href="#d9">D9 唐津</a><a href="#d10">D10 嬉野</a><a href="#d11">D11 返台</a>
 <a href="#food">美食清單</a>
 </div></nav>
+<!-- Hamburger button (mobile only) -->
+<button class="hamburger" id="hamburger" aria-label="選單">
+<span></span><span></span><span></span>
+</button>
+<!-- Side drawer -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="drawer" id="drawer">
+<button class="close-btn" id="drawer-close">✕</button>
+<a href="#todo" onclick="closeDrawer()">行前待辦 & 注意事項</a>
+<a href="#route" onclick="closeDrawer()">路線總覽</a>
+<a href="#d1" onclick="closeDrawer()">D1 入境</a>
+<a href="#d2" onclick="closeDrawer()">D2 阿蘇</a>
+<a href="#d3" onclick="closeDrawer()">D3 熊本城</a>
+<a href="#d4" onclick="closeDrawer()">D4 LaLaport</a>
+<a href="#d5" onclick="closeDrawer()">D5 糸島</a>
+<a href="#d6" onclick="closeDrawer()">D6 太宰府</a>
+<a href="#d7" onclick="closeDrawer()">D7 武雄</a>
+<a href="#d8" onclick="closeDrawer()">D8 有田</a>
+<a href="#d9" onclick="closeDrawer()">D9 唐津</a>
+<a href="#d10" onclick="closeDrawer()">D10 嬉野</a>
+<a href="#d11" onclick="closeDrawer()">D11 返台</a>
+<a href="#food" onclick="closeDrawer()">美食清單</a>
+</div>
 
 
 
@@ -271,6 +309,13 @@ function dayCard(d){
  </div></div>`;
 }
 document.getElementById('daylist').innerHTML=DAYS.map(dayCard).join('');
+
+// Side drawer
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');}
+document.getElementById('hamburger').addEventListener('click',openDrawer);
+document.getElementById('drawer-close').addEventListener('click',closeDrawer);
+document.getElementById('drawer-overlay').addEventListener('click',closeDrawer);
 </script>
 </body>
 </html>
